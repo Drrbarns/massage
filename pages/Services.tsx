@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MessageSquare, Phone, Info, CalendarCheck } from 'lucide-react';
-import { SERVICES, CONTACT_INFO } from '../constants';
+import { SERVICES, CONTACT_INFO, OTHER_SERVICES, SERVICE_LOCATIONS, BOOKING_REQUIREMENTS } from '../constants';
 
 const ServicesPage: React.FC = () => {
   return (
@@ -60,14 +60,13 @@ const ServicesPage: React.FC = () => {
             </div>
           ))}
 
-          {/* Special Item */}
+          {/* Special Fantasy Section */}
           <div className="bg-luxuryPink/5 border border-luxuryPink/20 rounded-[3rem] p-12 text-center mt-20">
             <Info className="mx-auto mb-6 text-luxuryPink" size={40} />
-            <h3 className="font-serif text-3xl font-bold mb-4">Secret Fantasy Unlocking</h3>
+            <h3 className="font-serif text-3xl font-bold mb-4">{OTHER_SERVICES[0].title}</h3>
             <p className="text-gray-600 mb-8 max-w-xl mx-auto italic">
-              Have a specific preference or fantasy you'd like to explore in a safe, professional, and discreet environment?
+              {OTHER_SERVICES[0].description}
             </p>
-            <div className="text-2xl font-serif text-luxuryPink font-bold mb-8">GH¢200 Inquiry Fee</div>
             <Link
               to="/book?service=fantasy"
               className="inline-block bg-luxuryPink text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-luxuryPink/90 transition-all shadow-xl"
@@ -75,9 +74,35 @@ const ServicesPage: React.FC = () => {
               Private Booking Inquiry
             </Link>
           </div>
+
+          {/* Additional Info Section */}
+          <div className="grid md:grid-cols-2 gap-8 mt-12 mb-20">
+            <div className="bg-gray-50 p-10 rounded-3xl border border-gray-100">
+              <h3 className="font-serif text-2xl font-bold mb-6 text-gray-900 border-b pb-4">Service Locations</h3>
+              <div className="space-y-6 text-gray-600">
+                <div>
+                  <h4 className="font-bold text-luxuryPink mb-2">Incall Service</h4>
+                  <p className="italic">The client will come to our location at East Legon.</p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-luxuryPink mb-2">Outcall Service</h4>
+                  <p className="italic">Our therapists will come to your location (hotel or apartment).</p>
+                  <p className="text-sm mt-2 text-gray-500">* Attracts an extra 200gh for transportation.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 p-10 rounded-3xl border border-gray-100 flex flex-col justify-center">
+              <h3 className="font-serif text-2xl font-bold mb-6 text-gray-900 border-b pb-4">Booking Policy</h3>
+              <p className="text-gray-600 leading-relaxed text-lg text-center font-medium">
+                {BOOKING_REQUIREMENTS}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
   );
 };
 

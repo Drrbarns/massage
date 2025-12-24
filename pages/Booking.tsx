@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Calendar, Clock, MapPin, User, Phone, CheckCircle2, MessageSquare, ChevronDown, Sparkles } from 'lucide-react';
-import { SERVICES, CONTACT_INFO } from '../constants';
+import { SERVICES, CONTACT_INFO, BOOKING_POLICIES } from '../constants';
 
 const Booking: React.FC = () => {
   const routerLocation = useLocation();
@@ -19,7 +19,7 @@ const Booking: React.FC = () => {
     locationType: 'Incall' as 'Incall' | 'Outcall',
   });
 
-  const selectedService = SERVICES.find(s => s.id === formData.serviceId) || 
+  const selectedService = SERVICES.find(s => s.id === formData.serviceId) ||
     (formData.serviceId === 'fantasy' ? { title: 'Secret Fantasy Unlocking', price: 'GH¢200', duration: 'Inquiry' } : null);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const Booking: React.FC = () => {
 
   const handleConfirm = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.serviceId) {
       alert("Please select a service first.");
       return;
@@ -37,7 +37,7 @@ const Booking: React.FC = () => {
     const serviceName = selectedService ? selectedService.title : 'Not Selected';
     const price = selectedService ? selectedService.price : 'TBD';
     const settingLabel = formData.locationType === 'Incall' ? 'Visit Massage Area (Incall)' : 'In-Home Service (Outcall)';
-    
+
     // Pre-formatting the message for WhatsApp
     const message = `*✨ NEW LUXURY BOOKING REQUEST*%0A%0A` +
       `*CLIENT DETAILS*%0A` +
@@ -70,7 +70,7 @@ const Booking: React.FC = () => {
             {/* Sidebar / Summary */}
             <div className="lg:col-span-2 bg-luxuryPink p-10 text-white flex flex-col justify-between relative overflow-hidden">
               <Sparkles className="absolute -top-10 -right-10 text-white/10 w-40 h-40 rotate-12" />
-              
+
               <div>
                 <h2 className="font-serif text-2xl font-bold mb-8 relative z-10">Your Selection</h2>
                 <div className="space-y-6 relative z-10">
@@ -101,7 +101,7 @@ const Booking: React.FC = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="mt-12 bg-white/10 p-5 rounded-2xl text-xs leading-relaxed italic border border-white/10 relative z-10">
                 "We provide a sanctuary of peace. Every detail of your appointment is handled with absolute discretion and elite care."
               </div>
@@ -118,7 +118,7 @@ const Booking: React.FC = () => {
                   <select
                     required
                     value={formData.serviceId}
-                    onChange={(e) => setFormData({...formData, serviceId: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, serviceId: e.target.value })}
                     className="w-full appearance-none bg-gray-50 border border-gray-100 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-luxuryPink/50 outline-none transition-all font-medium text-gray-700 pr-12 cursor-pointer"
                   >
                     <option value="" disabled>Select from our menu...</option>
@@ -139,7 +139,7 @@ const Booking: React.FC = () => {
                 <div className="flex gap-4">
                   <button
                     type="button"
-                    onClick={() => setFormData({...formData, locationType: 'Incall'})}
+                    onClick={() => setFormData({ ...formData, locationType: 'Incall' })}
                     className={`flex-1 p-4 rounded-2xl font-bold text-xs uppercase tracking-widest transition-all border-2 flex flex-col items-center gap-2 ${formData.locationType === 'Incall' ? 'bg-luxuryPink border-luxuryPink text-white shadow-xl scale-[1.02]' : 'bg-white border-gray-100 text-gray-400 hover:border-luxuryPink/30'}`}
                   >
                     <MapPin size={20} />
@@ -147,7 +147,7 @@ const Booking: React.FC = () => {
                   </button>
                   <button
                     type="button"
-                    onClick={() => setFormData({...formData, locationType: 'Outcall'})}
+                    onClick={() => setFormData({ ...formData, locationType: 'Outcall' })}
                     className={`flex-1 p-4 rounded-2xl font-bold text-xs uppercase tracking-widest transition-all border-2 flex flex-col items-center gap-2 ${formData.locationType === 'Outcall' ? 'bg-luxuryPink border-luxuryPink text-white shadow-xl scale-[1.02]' : 'bg-white border-gray-100 text-gray-400 hover:border-luxuryPink/30'}`}
                   >
                     <User size={20} />
@@ -158,9 +158,9 @@ const Booking: React.FC = () => {
                 <div className="relative">
                   <textarea
                     required
-                    placeholder={formData.locationType === 'Incall' ? "Our massage area is at Adjinganor by Trassaco. Please confirm your arrival preference here." : "Please provide your Full Address (Residence or Hotel) for our mobile team."}
+                    placeholder={formData.locationType === 'Incall' ? "Our massage area is at East Legon. Please confirm your arrival preference here." : "Please provide your Full Address (Residence or Hotel) for our mobile team."}
                     value={formData.location}
-                    onChange={(e) => setFormData({...formData, location: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                     rows={2}
                     className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-luxuryPink/50 outline-none transition-all resize-none italic text-sm"
                   ></textarea>
@@ -180,7 +180,7 @@ const Booking: React.FC = () => {
                       required
                       placeholder="Your Name"
                       value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full bg-gray-50 border border-gray-100 rounded-2xl pl-12 pr-6 py-4 focus:ring-2 focus:ring-luxuryPink/50 outline-none transition-all"
                     />
                   </div>
@@ -191,7 +191,7 @@ const Booking: React.FC = () => {
                       required
                       placeholder="Phone Number"
                       value={formData.phone}
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full bg-gray-50 border border-gray-100 rounded-2xl pl-12 pr-6 py-4 focus:ring-2 focus:ring-luxuryPink/50 outline-none transition-all"
                     />
                   </div>
@@ -204,7 +204,7 @@ const Booking: React.FC = () => {
                       type="date"
                       required
                       value={formData.date}
-                      onChange={(e) => setFormData({...formData, date: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                       className="w-full bg-gray-50 border border-gray-100 rounded-2xl pl-12 pr-6 py-4 focus:ring-2 focus:ring-luxuryPink/50 outline-none transition-all"
                     />
                   </div>
@@ -214,7 +214,7 @@ const Booking: React.FC = () => {
                       type="time"
                       required
                       value={formData.time}
-                      onChange={(e) => setFormData({...formData, time: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, time: e.target.value })}
                       className="w-full bg-gray-50 border border-gray-100 rounded-2xl pl-12 pr-6 py-4 focus:ring-2 focus:ring-luxuryPink/50 outline-none transition-all"
                     />
                   </div>
@@ -226,7 +226,7 @@ const Booking: React.FC = () => {
                   type="submit"
                   className="group w-full bg-luxuryPink text-white py-5 rounded-2xl font-bold uppercase tracking-widest hover:bg-luxuryPink/90 transition-all shadow-xl shadow-luxuryPink/20 flex items-center justify-center gap-3"
                 >
-                  <MessageSquare size={20} className="group-hover:scale-110 transition-transform" /> 
+                  <MessageSquare size={20} className="group-hover:scale-110 transition-transform" />
                   Confirm Via WhatsApp
                 </button>
                 <p className="text-center text-[10px] text-gray-400 uppercase tracking-widest italic mt-4">
@@ -234,6 +234,36 @@ const Booking: React.FC = () => {
                 </p>
               </div>
             </form>
+          </div>
+        </div>
+
+        {/* Booking Policies Section */}
+        <div className="mt-16 bg-luxuryPink/5 rounded-[2.5rem] p-8 md:p-12 border border-luxuryPink/10">
+          <div className="text-center mb-10">
+            <span className="w-12 h-12 rounded-full bg-luxuryPink text-white flex items-center justify-center text-xl font-serif font-bold mx-auto mb-4 shadow-lg shadow-luxuryPink/20">!</span>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">Massage & Xcort Booking Policies</h2>
+            <p className="text-gray-500 italic max-w-2xl mx-auto">Please review our policies to ensure a seamless and premium experience for both you and our providers.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {BOOKING_POLICIES.map((policy, idx) => (
+              <div key={idx} className="bg-white p-8 rounded-3xl shadow-sm border border-luxuryPink/5 hover:shadow-md transition-shadow">
+                {policy.title && (
+                  <h3 className="font-serif text-xl font-bold text-luxuryPink mb-6 flex items-center gap-3 border-b border-luxuryPink/10 pb-4">
+                    <Sparkles size={20} className="fill-luxuryPink/20" />
+                    {policy.title}
+                  </h3>
+                )}
+                <ul className="space-y-4">
+                  {policy.content.map((item, i) => (
+                    <li key={i} className="flex items-start gap-4 text-gray-600 leading-relaxed group">
+                      <span className="mt-2 w-2 h-2 rounded-full bg-luxuryPink/40 shrink-0 group-hover:bg-luxuryPink transition-colors" />
+                      <span className="italic">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </div>
