@@ -9,10 +9,10 @@ const About: React.FC = () => {
       <section className="relative py-24 bg-gray-50 overflow-hidden">
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-luxuryPink/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-luxuryGold/10 rounded-full blur-3xl"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h1 className="font-serif text-5xl md:text-6xl font-bold text-gray-900 mb-8">
-            Premium Mobile Luxury. <br /> 
+            Premium Mobile Luxury. <br />
             <span className="text-luxuryPink italic">Discreet. Professional. Unforgettable.</span>
           </h1>
           <p className="text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed italic">
@@ -90,6 +90,45 @@ const About: React.FC = () => {
             <div>
               <h3 className="text-xl font-bold text-luxuryPink mb-4">EXCELLENCE</h3>
               <p className="text-gray-500 italic">We don't just meet standards; we set them. Expect nothing less than perfection.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Therapists */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-serif text-4xl font-bold text-center mb-16 text-gray-900">Our Elite Therapists</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="group relative overflow-hidden rounded-[2rem] shadow-xl aspect-[3/4]">
+              <img
+                src="/lady1.jpg"
+                alt="Elite Therapist 1"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
+                <span className="text-white text-xl font-serif tracking-widest">ELAINE</span>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden rounded-[2rem] shadow-xl aspect-[3/4]">
+              <img
+                src="/lady2.jpg"
+                alt="Elite Therapist 2"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
+                <span className="text-white text-xl font-serif tracking-widest">SOPHIA</span>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden rounded-[2rem] shadow-xl aspect-[3/4]">
+              <img
+                src="/lady3.jpg"
+                alt="Elite Therapist 3"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
+                <span className="text-white text-xl font-serif tracking-widest">ISABELLA</span>
+              </div>
             </div>
           </div>
         </div>

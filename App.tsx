@@ -19,10 +19,9 @@ const Navbar: React.FC = () => {
   return (
     <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-luxuryPink/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
+        <div className="flex justify-between h-20 md:h-28 items-center">
           <Link to="/" className="flex flex-col items-center">
-            <span className="font-serif text-xl md:text-2xl font-bold tracking-widest text-luxuryPink">LUXURY SENSATION</span>
-            <span className="text-[10px] tracking-[0.3em] uppercase text-gray-500 -mt-1">Massage GH</span>
+            <img src="/luxury_sensation_logo.png" alt="Luxury Sensation Massage GH" className="h-16 md:h-24 w-auto object-contain" />
           </Link>
 
           {/* Desktop Nav */}
@@ -31,9 +30,8 @@ const Navbar: React.FC = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm uppercase tracking-widest hover:text-luxuryPink transition-colors ${
-                  location.pathname === item.path ? 'text-luxuryPink font-semibold' : 'text-gray-600'
-                }`}
+                className={`text-sm uppercase tracking-widest hover:text-luxuryPink transition-colors ${location.pathname === item.path ? 'text-luxuryPink font-semibold' : 'text-gray-600'
+                  }`}
               >
                 {item.label}
               </Link>
@@ -90,8 +88,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <span className="font-serif text-2xl font-bold tracking-widest text-luxuryPink">LUXURY SENSATION</span>
-              <span className="block text-[10px] tracking-[0.3em] uppercase text-gray-500">Massage GH</span>
+              <img src="/luxury_sensation_logo.png" alt="Luxury Sensation Massage GH" className="h-28 w-auto object-contain" />
             </Link>
             <p className="text-gray-500 max-w-sm mb-6 leading-relaxed italic">
               Experience the pinnacle of relaxation and discretion in Accra. Our elite therapists are dedicated to your total well-being and satisfaction.
@@ -159,7 +156,7 @@ const App: React.FC = () => {
     <HashRouter>
       <div className="min-h-screen flex flex-col bg-white selection:bg-luxuryPink selection:text-white">
         <Navbar />
-        <main className="flex-grow pt-20">
+        <main className="flex-grow pt-24 md:pt-32">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<ServicesPage />} />
@@ -170,7 +167,7 @@ const App: React.FC = () => {
           </Routes>
         </main>
         <Footer />
-        
+
         {/* Floating WhatsApp Button */}
         <a
           href={`https://wa.me/${CONTACT_INFO.whatsapp}`}

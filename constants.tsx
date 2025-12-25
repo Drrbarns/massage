@@ -35,7 +35,7 @@ export const SERVICES: Service[] = [
     price: 'GHS 2300',
     duration: '120mins',
     category: 'Experience',
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=800'
+    image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: 'vip-nuru',
@@ -101,7 +101,7 @@ export const OTHER_SERVICES = [
 ];
 
 export const CONTACT_INFO = {
-  location: 'East Legon, Accra, Ghana',
+  location: 'Adjiringanor East Legon, Accra Ghana',
   email: 'luxurysensationmassage@gmail.com',
   phone: '+233531131648',
   whatsapp: '233531131648'
@@ -115,8 +115,7 @@ export const SERVICE_LOCATIONS = {
 export const BOOKING_REQUIREMENTS = 'Half or Full Payment Validate Your Booking To Avoid Any Disappointment From The Client Thanks';
 
 export const HOURS = [
-  { day: 'Monday - Friday', time: '10AM – 8PM (Incall)' },
-  { day: 'Saturday', time: '10AM – 11PM (Outcall)' },
+  { day: 'Monday - Saturday', time: '8:00am to 11:30pm' },
   { day: 'Sunday', time: 'By Appointment' }
 ];
 

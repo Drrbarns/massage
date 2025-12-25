@@ -255,6 +255,83 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Therapists Preview */}
+      <section className="py-24 bg-stone-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="text-luxuryPink font-semibold uppercase tracking-widest text-sm mb-2 block">Meet The Team</span>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Elite Therapists</h2>
+            <div className="w-24 h-1 bg-luxuryPink mx-auto rounded-full"></div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="group relative overflow-hidden rounded-[2rem] shadow-xl aspect-[3/4]"
+            >
+              <img
+                src="/lady1.jpg"
+                alt="Elite Therapist 1"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
+                <span className="text-white text-xl font-serif tracking-widest">ELAINE</span>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="group relative overflow-hidden rounded-[2rem] shadow-xl aspect-[3/4]"
+            >
+              <img
+                src="/lady2.jpg"
+                alt="Elite Therapist 2"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
+                <span className="text-white text-xl font-serif tracking-widest">SOPHIA</span>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="group relative overflow-hidden rounded-[2rem] shadow-xl aspect-[3/4]"
+            >
+              <img
+                src="/lady3.jpg"
+                alt="Elite Therapist 3"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
+                <span className="text-white text-xl font-serif tracking-widest">ISABELLA</span>
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              to="/about"
+              className="inline-block border-2 border-luxuryPink text-luxuryPink px-10 py-3 rounded-full font-semibold uppercase tracking-widest hover:bg-luxuryPink hover:text-white transition-all text-sm"
+            >
+              Learn More About Us
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us */}
       <section className="py-24 bg-luxuryPink/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
