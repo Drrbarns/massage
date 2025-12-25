@@ -83,17 +83,17 @@ const Navbar: React.FC = () => {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-white pt-20 pb-10 border-t border-luxuryPink/10">
+    <footer className="bg-white pt-16 md:pt-20 pb-10 border-t border-luxuryPink/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16 text-center md:text-left">
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <img src="/luxury_sensation_logo.png" alt="Luxury Sensation Massage GH" className="h-28 w-auto object-contain" />
+              <img src="/luxury_sensation_logo.png" alt="Luxury Sensation Massage GH" className="h-20 md:h-28 w-auto object-contain mx-auto md:mx-0" />
             </Link>
-            <p className="text-gray-500 max-w-sm mb-6 leading-relaxed italic">
+            <p className="text-gray-500 max-w-sm mx-auto md:mx-0 mb-6 leading-relaxed italic">
               Experience the pinnacle of relaxation and discretion in Accra. Our elite therapists are dedicated to your total well-being and satisfaction.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center md:justify-start">
               <a href="#" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-luxuryPink hover:bg-luxuryPink hover:text-white transition-all">
                 <Instagram size={20} />
               </a>
@@ -104,19 +104,19 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="font-serif text-lg font-semibold mb-6 uppercase tracking-widest text-gray-800 border-b border-luxuryPink/20 pb-2">Quick Links</h4>
+            <h4 className="font-serif text-lg font-semibold mb-6 uppercase tracking-widest text-gray-800 md:border-b border-luxuryPink/20 pb-2">Quick Links</h4>
             <ul className="space-y-4">
               {NAV_ITEMS.map((item) => (
                 <li key={item.path}>
-                  <Link to={item.path} className="text-gray-500 hover:text-luxuryPink transition-colors flex items-center group text-sm">
-                    <ChevronRight size={14} className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <Link to={item.path} className="text-gray-500 hover:text-luxuryPink transition-colors flex items-center justify-center md:justify-start group text-sm">
+                    <ChevronRight size={14} className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity hidden md:block" />
                     {item.label}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link to="/book" className="text-gray-500 hover:text-luxuryPink transition-colors flex items-center group text-sm">
-                  <ChevronRight size={14} className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <Link to="/book" className="text-gray-500 hover:text-luxuryPink transition-colors flex items-center justify-center md:justify-start group text-sm">
+                  <ChevronRight size={14} className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity hidden md:block" />
                   Book Appointment
                 </Link>
               </li>
@@ -124,17 +124,17 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="font-serif text-lg font-semibold mb-6 uppercase tracking-widest text-gray-800 border-b border-luxuryPink/20 pb-2">Contact</h4>
+            <h4 className="font-serif text-lg font-semibold mb-6 uppercase tracking-widest text-gray-800 md:border-b border-luxuryPink/20 pb-2">Contact</h4>
             <ul className="space-y-4 text-sm text-gray-500">
-              <li className="flex items-start">
+              <li className="flex items-start justify-center md:justify-start">
                 <MapPin size={18} className="mr-3 text-luxuryPink shrink-0" />
                 <span>{CONTACT_INFO.location}</span>
               </li>
-              <li className="flex items-center">
+              <li className="flex items-center justify-center md:justify-start">
                 <Phone size={18} className="mr-3 text-luxuryPink shrink-0" />
                 <span>{CONTACT_INFO.phone}</span>
               </li>
-              <li className="flex items-center">
+              <li className="flex items-center justify-center md:justify-start">
                 <Mail size={18} className="mr-3 text-luxuryPink shrink-0" />
                 <span className="break-all">{CONTACT_INFO.email}</span>
               </li>
@@ -142,7 +142,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="border-t border-luxuryPink/10 pt-8 text-center text-xs text-gray-400">
+        <div className="border-t border-luxuryPink/10 pt-8 pb-20 md:pb-0 text-center text-xs text-gray-400">
           <p>Luxury Sensation Massage GH © {new Date().getFullYear()}. All Rights Reserved.</p>
           <p className="mt-2">Designed by Norton Digital Enterprises</p>
         </div>
