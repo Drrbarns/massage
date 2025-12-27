@@ -35,7 +35,7 @@ export const SERVICES: Service[] = [
     price: 'GHS 2300',
     duration: '120mins',
     category: 'Experience',
-    image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=800'
+    image: '/image1.jpg'
   },
   {
     id: 'vip-nuru',
@@ -101,14 +101,14 @@ export const OTHER_SERVICES = [
 ];
 
 export const CONTACT_INFO = {
-  location: 'Adjiringanor East Legon, Accra Ghana',
+  location: 'Eric Abang Amewuda Street Adjiringanor, Accra, Ghana',
   email: 'luxurysensationmassage@gmail.com',
   phone: '+233531131648',
   whatsapp: '233531131648'
 };
 
 export const SERVICE_LOCATIONS = {
-  incall: 'Incall service means: the client will come to our location at East Legon',
+  incall: 'Incall service means: the client will come to our location at Eric Abang Amewuda Street Adjiringanor',
   outcall: 'Outcall service means: our therapists will come to your location hotel, or apartment. Outcall service attracts an extra GHS 200 for transportation going & coming back'
 };
 

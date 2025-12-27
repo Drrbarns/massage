@@ -158,7 +158,7 @@ const Booking: React.FC = () => {
                 <div className="relative">
                   <textarea
                     required
-                    placeholder={formData.locationType === 'Incall' ? "Our massage area is at East Legon. Please confirm your arrival preference here." : "Please provide your Full Address (Residence or Hotel) for our mobile team."}
+                    placeholder={formData.locationType === 'Incall' ? "Our massage area is at Adjiringanor. Please confirm your arrival preference here." : "Please provide your Full Address (Residence or Hotel) for our mobile team."}
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                     rows={2}

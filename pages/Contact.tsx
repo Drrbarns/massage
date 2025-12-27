@@ -69,7 +69,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-1">WhatsApp</h3>
-                  <a 
+                  <a
                     href={`https://wa.me/${CONTACT_INFO.whatsapp}`}
                     className="text-lg text-luxuryPink font-bold hover:underline italic"
                   >
@@ -100,7 +100,7 @@ const Contact: React.FC = () => {
                     type="text"
                     required
                     value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Your Name"
                     className="w-full bg-gray-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-luxuryPink/50 outline-none transition-all italic"
                   />
@@ -112,7 +112,7 @@ const Contact: React.FC = () => {
                       type="email"
                       required
                       value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="Email Address"
                       className="w-full bg-gray-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-luxuryPink/50 outline-none transition-all italic"
                     />
@@ -123,7 +123,7 @@ const Contact: React.FC = () => {
                       type="text"
                       required
                       value={formData.subject}
-                      onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       placeholder="How can we help?"
                       className="w-full bg-gray-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-luxuryPink/50 outline-none transition-all italic"
                     />
@@ -135,7 +135,7 @@ const Contact: React.FC = () => {
                     rows={4}
                     required
                     value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Tell us about your needs..."
                     className="w-full bg-gray-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-luxuryPink/50 outline-none transition-all italic resize-none"
                   ></textarea>
@@ -147,6 +147,26 @@ const Contact: React.FC = () => {
                   <Send size={20} /> Send Message
                 </button>
               </form>
+            </div>
+          </div>
+        </div>
+
+        {/* Map */}
+        <div className="mt-20">
+          <div className="bg-gray-50 p-4 rounded-[3rem] border border-gray-100 shadow-sm h-[400px] md:h-[500px] relative overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.4373449591456!2d-0.1472877!3d5.6496383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf852d798150bd%3A0x7d6560965824987f!2sEric%20Abang%20Amewuda%20Street%2C%20Accra!5e0!3m2!1sen!2sgh!4v1703695000000!5m2!1sen!2sgh"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-[2.5rem] grayscale hover:grayscale-0 transition-all duration-500"
+            ></iframe>
+            <div className="absolute bottom-8 right-8 bg-white/90 backdrop-blur px-6 py-4 rounded-2xl shadow-lg pointer-events-none hidden md:block">
+              <p className="text-sm font-bold text-gray-900">Eric Abang Amewuda Street</p>
+              <p className="text-xs text-gray-500">Adjiringanor, Accra</p>
             </div>
           </div>
         </div>

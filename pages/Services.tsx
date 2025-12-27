@@ -82,7 +82,7 @@ const ServicesPage: React.FC = () => {
               <div className="space-y-6 text-gray-600">
                 <div>
                   <h4 className="font-bold text-luxuryPink mb-2">Incall Service</h4>
-                  <p className="italic">The client will come to our location at East Legon.</p>
+                  <p className="italic">The client will come to our location at Eric Abang Amewuda Street Adjiringanor.</p>
                 </div>
                 <div>
                   <h4 className="font-bold text-luxuryPink mb-2">Outcall Service</h4>

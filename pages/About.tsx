@@ -95,6 +95,43 @@ const About: React.FC = () => {
         </div>
       </section>
 
+      {/* Facilities */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-serif text-4xl font-bold text-center mb-16 text-gray-900">Our Facilities</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            <div className="group relative overflow-hidden rounded-[2rem] shadow-2xl aspect-[4/3]">
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10"></div>
+              <img
+                src="/a.jpg"
+                alt="Luxury Massage Facility"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-8 z-20 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                <div className="bg-white/95 backdrop-blur-sm p-6 rounded-2xl shadow-lg">
+                  <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Private Suite</h3>
+                  <p className="text-gray-600 text-sm">Experience tranquility in our exclusive private suites.</p>
+                </div>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden rounded-[2rem] shadow-2xl aspect-[4/3]">
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10"></div>
+              <img
+                src="/b.jpg"
+                alt="Premium Relaxation Room"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-8 z-20 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                <div className="bg-white/95 backdrop-blur-sm p-6 rounded-2xl shadow-lg">
+                  <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">Relaxation Lounge</h3>
+                  <p className="text-gray-600 text-sm">Designed for your ultimate comfort and peace of mind.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Therapists */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
