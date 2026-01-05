@@ -29,7 +29,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Send email using Resend
     const { data, error } = await resend.emails.send({
       from: 'Luxury Sensation Massage <onboarding@resend.dev>',
-      to: ['luxurysensationmassage@gmail.com'],
+      to: ['crytoatm@gmail.com'], // TODO: Change back to luxurysensationmassage@gmail.com after domain verification
       replyTo: email,
       subject: `[Contact Form] ${subject}`,
       html: `
