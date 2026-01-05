@@ -4,35 +4,35 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-    // Only allow POST requests
-    if (req.method !== 'POST') {
-        return res.status(405).json({ error: 'Method not allowed' });
+  // Only allow POST requests
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // Enable CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
+  try {
+    const { name, email, subject, message } = req.body;
+
+    // Validate required fields
+    if (!name || !email || !subject || !message) {
+      return res.status(400).json({ error: 'All fields are required' });
     }
 
-    // Enable CORS
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-    if (req.method === 'OPTIONS') {
-        return res.status(200).end();
-    }
-
-    try {
-        const { name, email, subject, message } = req.body;
-
-        // Validate required fields
-        if (!name || !email || !subject || !message) {
-            return res.status(400).json({ error: 'All fields are required' });
-        }
-
-        // Send email using Resend
-        const { data, error } = await resend.emails.send({
-            from: 'Luxury Sensation Massage <noreply@luxurysensationmassage.com>',
-            to: ['luxurysensationmassage@gmail.com'],
-            replyTo: email,
-            subject: `[Contact Form] ${subject}`,
-            html: `
+    // Send email using Resend
+    const { data, error } = await resend.emails.send({
+      from: 'Luxury Sensation Massage <onboarding@resend.dev>',
+      to: ['luxurysensationmassage@gmail.com'],
+      replyTo: email,
+      subject: `[Contact Form] ${subject}`,
+      html: `
         <div style="font-family: 'Georgia', serif; max-width: 600px; margin: 0 auto; background: #fff;">
           <div style="background: linear-gradient(135deg, #D4A5A5, #E8C4C4); padding: 30px; text-align: center;">
             <h1 style="color: #fff; margin: 0; font-size: 24px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
@@ -78,16 +78,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           </div>
         </div>
       `,
-        });
+    });
 
-        if (error) {
-            console.error('Resend error:', error);
-            return res.status(500).json({ error: 'Failed to send email' });
-        }
-
-        return res.status(200).json({ success: true, messageId: data?.id });
-    } catch (error) {
-        console.error('Server error:', error);
-        return res.status(500).json({ error: 'Internal server error' });
+    if (error) {
+      console.error('Resend error:', error);
+      return res.status(500).json({ error: 'Failed to send email' });
     }
+
+    return res.status(200).json({ success: true, messageId: data?.id });
+  } catch (error) {
+    console.error('Server error:', error);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
 }
