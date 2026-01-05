@@ -1,0 +1,11 @@
+# Robots.txt for Luxury Sensation Massage GH
+# https://www.luxurysensationmassage.com/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.luxurysensationmassage.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
