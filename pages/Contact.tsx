@@ -1,7 +1,9 @@
 
 import React from 'react';
-import { MapPin, Phone, Mail, Instagram, MessageSquare, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Instagram, MessageSquare, Send, Loader2, CheckCircle, XCircle } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
+
+type SubmitStatus = 'idle' | 'loading' | 'success' | 'error';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = React.useState({
@@ -10,12 +12,41 @@ const Contact: React.FC = () => {
     subject: '',
     message: ''
   });
+  const [submitStatus, setSubmitStatus] = React.useState<SubmitStatus>('idle');
+  const [errorMessage, setErrorMessage] = React.useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send data to a backend
-    alert('Thank you for your message. Our concierge will contact you shortly.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setSubmitStatus('loading');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+
+      // Reset status after 5 seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } catch (error) {
+      setSubmitStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : 'Something went wrong. Please try again.');
+
+      // Reset status after 5 seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    }
   };
 
   return (
@@ -140,11 +171,47 @@ const Contact: React.FC = () => {
                     className="w-full bg-gray-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-luxuryPink/50 outline-none transition-all italic resize-none"
                   ></textarea>
                 </div>
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <div className="bg-green-50 border border-green-200 text-green-700 px-6 py-4 rounded-2xl flex items-center gap-3">
+                    <CheckCircle size={20} className="text-green-500" />
+                    <span className="font-medium">Message sent successfully! We'll get back to you soon.</span>
+                  </div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-6 py-4 rounded-2xl flex items-center gap-3">
+                    <XCircle size={20} className="text-red-500" />
+                    <span className="font-medium">{errorMessage || 'Failed to send message. Please try again.'}</span>
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full bg-luxuryPink text-white py-5 rounded-2xl font-bold uppercase tracking-widest hover:bg-luxuryPink/90 transition-all shadow-xl shadow-luxuryPink/20 flex items-center justify-center gap-3"
+                  disabled={submitStatus === 'loading'}
+                  className={`w-full py-5 rounded-2xl font-bold uppercase tracking-widest transition-all shadow-xl flex items-center justify-center gap-3 ${submitStatus === 'loading'
+                      ? 'bg-gray-300 text-gray-500 cursor-not-allowed shadow-gray-200'
+                      : submitStatus === 'success'
+                        ? 'bg-green-500 text-white shadow-green-200 hover:bg-green-600'
+                        : 'bg-luxuryPink text-white shadow-luxuryPink/20 hover:bg-luxuryPink/90'
+                    }`}
                 >
-                  <Send size={20} /> Send Message
+                  {submitStatus === 'loading' ? (
+                    <>
+                      <Loader2 size={20} className="animate-spin" />
+                      Sending...
+                    </>
+                  ) : submitStatus === 'success' ? (
+                    <>
+                      <CheckCircle size={20} />
+                      Sent Successfully!
+                    </>
+                  ) : (
+                    <>
+                      <Send size={20} />
+                      Send Message
+                    </>
+                  )}
                 </button>
               </form>
             </div>
